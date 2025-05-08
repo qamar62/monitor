@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  website-monitor:
+    build: .
+    container_name: five-tours-monitor
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+      - ./:/app
+    environment:
+      - TZ=UTC
