@@ -10,12 +10,18 @@ import asyncio
 import socket
 
 # Configuration
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
+
 CONFIG = {
     "website_url": "https://five.tours",
     "server_ip": "165.154.245.246",
     "check_interval": 60,  # seconds
-    "discord_bot_token": "",  # Add your Discord bot token here
-    "discord_channel_id": 1370003857643536496,  # Your channel ID
+    "discord_bot_token": os.getenv("DISCORD_BOT_TOKEN", ""),
+    "discord_channel_id": int(os.getenv("DISCORD_CHANNEL_ID", "1370003857643536496")),
     "timeout": 10,  # Request timeout in seconds
     "log_file": "website_monitor.log",
     "status_file": "status_history.json"
