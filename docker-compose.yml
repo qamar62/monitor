@@ -10,3 +10,12 @@ services:
       - ./:/app
     environment:
       - TZ=UTC
+
+  otp-sender:
+    build: ./otp_sender
+    container_name: otp-sender
+    restart: unless-stopped
+    volumes:
+      - ./otp_sender:/app
+    environment:
+      - TZ=UTC
